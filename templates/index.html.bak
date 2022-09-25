@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Capture {% endblock %}
+
+{% block content %}
+
+    <h1>Herb Guide</h1>
+    <h2>Welcome to the Herb Guide. We will help you identify poisonous plants, and those safe for consumption</h2>
+
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Upload plant picture</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+        <!--<br>-->
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Take Picture</label>
+            <button type="button" class="btn btn-primary">Take Picture</button>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Assess</button>
+        </div>
+    </form>
+    <hr>
+
+{% endblock %}

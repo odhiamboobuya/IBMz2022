@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} Capture {% endblock %}
+
+{% block content %}
+
+    <h1>Edible Herb Guide</h1>
+
+    Let's leverage on mother earth's rich greenery, both for sustenance and medicinal value. <br>
+    Either upload a picture or take a photo to assess whether or not a plant is poisonous
+    <hr>
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Upload </label>
+            <input class="form-control" type="file" name='file' id="formFile">
+        </div>
+        <br>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Take Picture</label>
+            <input type="file" name="fileCapture" accept="image/*" capture="environment">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block">Assess</button>
+        </div>
+    </form>
+    <hr>
+
+{% endblock %}

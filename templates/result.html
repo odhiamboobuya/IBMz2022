@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %} Capture {% endblock %}
+
+{% block content %}
+
+   <div class="container text-center">
+  <div class="row">
+    <div class="col-sm-12">
+        <figure class="figure">
+  <img src="{{ filepath }}" class="img-thumbnail">
+            <figcaption class="figure-caption"><i>{{ herbName }}, ( {{ othername }} ) </i></figcaption>
+</figure>
+        </div>
+   </div>
+  <div class="row">
+      {% if verdict == 'Y'  %}
+                <div class="col-sm-12 col-md-4 col-lg-2" style="padding: 10px;
+                        background-color: green;
+                        margin: 20px">Edible</div>
+            {% elif verdict == 'N' %}
+                <div class="col-sm-12 col-md-4 col-lg-2" style="padding: 10px;
+                        background-color: red;
+                        margin: 20px">Poisonous</div>
+            {% else %}
+      <br>
+      <div class="col-sm-12 col-md-4 col-lg-2" style="padding: 10px;
+                        background-color: yellow;
+                        margin: 20px">Unknown</div>
+      {% endif %}
+
+    <div class="col-sm-12 col-md-8 col-lg-8">{{ description }}</div>
+    <hr>
+      {% if verdict == 'Y'  %}
+            <h3>How to prepare {{ herbName }}</h3>
+                <div class="col-sm-12 col-md-8 col-lg-8">{{ recepie }}</div>
+            {% elif verdict == 'N' %}
+      <h3>How to treat {{ herbName }} ingestion</h3>
+                <div class="col-sm-12 col-md-8 col-lg-8">{{ antidote }}</div>
+            {% else %}
+       <p>&nbsp;</p>
+      {% endif %}
+      <hr>
+      {% if verdict == 'Unknown'  %}
+            &nbsp;
+            {% else %}
+      <a href="{{ herbLink }}">source:{{ herbLink }}</a>
+      {% endif %}
+    <div class="col-sm-12 col-md-12 col-lg-2">
+        <a href="{{ url_for('homePage') }}">
+            <button type="button" class="btn btn-secondary btn-block">Retry Different Herb</button>
+            </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
